@@ -72,7 +72,7 @@ task("depositERC20", "Deposit erc20 token to zkLink on testnet")
             const allowance = await erc20.connect(sender).allowance(sender.address, zkLinkProxy);
             if (allowance === 0n) {
                     console.log('add unlimited allowance');
-                    const tx = await erc20.connect(sender).approve(zkLink, hardhat.ethers.MaxUint256);
+                    const tx = await erc20.connect(sender).approve(zkLinkProxy, hardhat.ethers.MaxUint256);
                     await tx.wait();
                     console.log('approve tx hash', tx.hash);
             }
